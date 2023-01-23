@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-const useForm = (initialForm, validateForm) => {
+const useForm = (initialForm, initialErrors, validateForm) => {
 
     const [values, setValues ] = useState( initialForm );
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState( initialErrors );
 
     const handleInputChange = ({ target }) =>
     {   
-        if(target.name !== '')
+        if(target.name && target.name !== '')
         {
             setValues({
                 ...values,

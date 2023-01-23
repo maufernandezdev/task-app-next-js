@@ -13,10 +13,6 @@ const taskSchema = new Schema({
         required: true,
         trim: true,
         maxlength: [200, 'Title must be less than 200 characters']
-    },
-    border:{
-        type: String,
-        required: false,
     }
 },{
     timestamps: true,

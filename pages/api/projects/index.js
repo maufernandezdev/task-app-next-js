@@ -1,5 +1,5 @@
 import {dbConnect} from 'utils/mongoose'
-import Task from 'models/Task'
+import Project from 'models/Project';
 
 
 export default async function handler(req, res) {
@@ -11,8 +11,8 @@ export default async function handler(req, res) {
       case 'GET':
 
         try {
-          const tasks = await Task.find();
-          return res.status(200).json(tasks);
+          const project = await Project.find();
+          return res.status(200).json(project);
         } catch(error) {
           return res.status(500).json({error: error.message});
         }
@@ -21,10 +21,11 @@ export default async function handler(req, res) {
         
         try {
           const parseBody = JSON.parse(body);
-          const newTask = new Task(parseBody);
-          const savedTask = await newTask.save();
-          return res.status(200).json({msg:'Creating a new task', task: savedTask});
+          const newProject = new Project(parseBody);
+          const savedProject = await newProject.save();
+          return res.status(200).json({msg:'Creating a new project', task: savedProject});
         } catch(error) {
+          if(error.code === 11000) return res.status(400).json({error: error.message, duplicate: error.keyValue.name});
           return res.status(500).json({error: error.message});
         }
 

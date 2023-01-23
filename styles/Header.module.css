@@ -1,0 +1,36 @@
+.header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5em 0em;
+    background-color: #fafafa;
+}
+
+.header .header__nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1240px;
+    width: 100%;
+    padding: .5em 1em;
+
+}
+
+.header .userContainer{
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.15);
+    padding: 0.7em;
+    line-height: 0.5;
+}
+
+.header .userContainer svg{
+    color:#333;
+}
+
+.header p{
+    font-family: var(--font-mono);
+    font-weight: 600;
+    position: relative;
+    top: 6px;
+    color: #333;
+}

@@ -21,182 +21,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-.card {
-  padding: 1rem 1.2rem;
-  border-radius: 7px;
-  border-radius: var(--border-radius);
-  width: 300px;
-  text-align:left;
-  color: #fff;
-  color: #000;
-  margin: 0.5em;
-  border: 1px solid #dddd;
-  border: 1px solid #C9CCD2;
-  font-family: var(--font-mono);
-  font-size: 0.8em;
-  height: auto;
-  /* height: 150px; */
-  /* background-color: #673de6;
-  background-color: #dddd; */
-}
-
-.borderViolet{
-  border-left: 4px solid #673de6;
-}
-
-.borderOrange{
-  border-left: 4px solid #EF4F1A;
-}
-
-.borderLightkBlue{
-  border-left: 4px solid #1798B5;
-}
-
-.borderRed{
-  border-left: 4px solid #B51749;
-}
-
-.borderYellow{
-  border-left: 4px solid #DDEF6A;
-}
-
-.borderGreen{
-  border-left: 4px solid #63D93E;
-}
-
-.card .card__header{
-  display:flex;
-  justify-content: space-between;
-}
-
-.card input,
-.card textarea{
-  font-size: 0.9em;
-}
-
-.card .card__header svg{
-  
-  border-radius: 50%;
-  font-size: 1.5em;
-  transition: all .25s ease;
-  position: relative;
-  left: 3px;
-  top: 2.7px;
-  color: #000;
-}
-
-.card .card__header .dotContainer{
-  border-radius: 7px;
-  transition: all .25s ease;
-  width: 25px;
-  height: 25px;
-}
-
-.card .card__header .dotContainer:hover{
-  
-  background-color: #dddd;
-}
-
-
-.card .card__body .button__container{
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 1em;
-  /* background-color: red; */
-  padding: 0;
-}
-
-.card .card__body button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9em;
-  transition: background 200ms, border 200ms;
-  text-align:left;
-  color: #000;
-  margin-right: 5px;
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  /* background-color: #673de6;
-  background-color: #B8F2FF;
-  background-color: #C8F4FE; */
-  background-color: #dddd;
-  color: #000;
-  border-radius: 7px;
-  outline: none;
-  border: none;
-}
-
-.card .card__body .card__button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9em;
-  transition: background 200ms, border 200ms;
-  color: #000;
-  margin: 0.5em 0em 0em 0em;
-  /* height: 45px; */
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  background-color: #673de6;
-  color: #fff;
-  border-radius: 7px;
-  outline: none;
-  border: none;
-}
-
-.card__button{
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 1.2rem;
-  transition: background 200ms, border 200ms;
-  color: #000;
-  margin: 0.5em;
-  margin-bottom: 2em;
-  height: 45px;
-  font-family: var(--font-mono);
-  font-size: 0.8em;
-  background-color: #673de6;
-  color: #fff;
-  border-radius: 7px;
-  outline: none;
-  border: none;
-}
-
-.card .card__colors{
-  /* background-color: red; */
-  width: 100%;
-  height: auto;
-  margin-top: 1em;
-}
-
-.card .card__colors svg{
-  margin-right: 5px;
-  width: 20px;
-  height: 20px;
-}
-
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
-
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-.card .card__description {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  max-width: 30ch;
-  text-align: left;
-}
-
 /* custom styles */
 
 .container{
@@ -204,12 +28,10 @@
   display:flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 2em;
+  padding: 2em 1em;
   max-width: 1240px;
   margin: 0px auto;
 }
-
-
 
 .container h1{
   width: 100%;
@@ -230,20 +52,6 @@
   text-align: center;
 }
 
-.container .container__header{
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 915px;
-}
-
-.container .container__header .container__header_h3{
-  font-family: 'Roboto', sans-serif;
-  color: gray;
-
-}
-
 .container div button{
   width: auto;
   font-size: 1.2em;
@@ -261,7 +69,7 @@
   color:#333;
   width: 100%;
   max-width: 700px;
-  text-align:center;
+  text-align: center;
   font-size: 2em;
   margin-bottom: 1em;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -270,67 +78,6 @@
 .container div button a{
   color: #4979ff;
   cursor: default;
-}
-
-.form{
-  padding: 1em;
-  max-width: 400px;
-  border-radius: 12px;
-  border-radius: var(--border-radius);
-  background-color: #dddd;
-}
-
-.form__input{
-  font-family: var(--font-mono);
-  width: 100%;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #ccc;
-  margin: 0.5em 0em 1em 0em;
-  padding: 0.7em;
-  font-size: 0.8em;
-}
-
-.form__valid{
-  font-family: var(--font-mono);
-  width: 100%;
-  border: none;
-  outline: none;
-  margin: 0.5em 0em 1em 0em;
-  padding: 0.7em;
-  font-size: 0.8em;
-  border-bottom: 1px solid #00a650;
-}
-
-.form__input[type='submit']{
-  margin: 1em 0em 0em 0em;
-  background-color: #673de6;
-  color: #fff;
-  border-radius: 7px;
-}
-
-.form textarea{
-  resize: none;
-}
-
-.card textarea{
-  resize: none;
-}
-
-.form__label{
-  color: #000;
-  font-family: var(--font-mono);
-  padding: 0.3em;
-}
-
-.form__error{
-    color: #ff0000;
-    width: 100%;
-    margin: 0;
-    font-size: 0.775em;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 2em;
-    padding: 0em 0.3em;
 }
 
 @media (min-width: 1024px)

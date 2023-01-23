@@ -1,0 +1,37 @@
+.container{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1em 0em 2em 0em;
+    max-width: 1240px;
+    margin: 0px auto;
+}
+.container .header{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 0em 1em;
+}
+
+.container .header svg{
+
+    font-size: 1.7em;
+    color: #333;
+    position: relative;
+    top: -3px;
+    left: -3px;
+}
+
+.container .header a{
+    cursor: default;
+}
+
+.container .header h1{
+    margin: 0.5em 0em;
+}
+
+@media (min-width: 1024px){
+
+}

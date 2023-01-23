@@ -1,0 +1,17 @@
+.footer{
+    display: flex;
+    justify-content: center;
+    text-align:center;
+    width: 100%;
+}
+
+.footer p{
+    max-width: 1240px;
+    width: 100%;
+    font-weight: 700;
+    color: #333;
+    font-size: 1em;
+    font-family: var(--font-mono);
+    padding: 1em;
+    border-top: 1px solid rgba(0,0,0,.15);
+}

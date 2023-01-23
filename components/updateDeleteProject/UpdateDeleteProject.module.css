@@ -1,0 +1,90 @@
+.modal{
+    font-family: var(--font-mono);
+} 
+
+.modal .modal__header{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.modal .modal__header button{
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    padding: 0.4em 0.5em;
+    line-height: 0.8;
+    font-size: 1.3em;
+    transition:all .1s ease-in-out;
+    background-color: transparent;
+    position: relative;
+    top: -5px;
+}
+
+.modal .modal__header button:hover{
+    background-color: rgba(0,0,0,.15);
+}
+
+.modal .modal__container{
+    display:flex;
+    flex-wrap: wrap;
+    padding: 1em;
+} 
+
+.modal .modal__container h5{
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.modal .modal__container input{
+    width: 100%;
+    transition:all .1s ease-in-out;
+    border: none;
+    background-color: #eee;
+    border: 2px solid #eee;
+    outline-color: #2196f3;
+    padding: 0.5em;
+    font-size: 0.9em;
+    margin: 1em 0em 2em 0em;
+    border-radius: 6px;
+    font-weight: 300;
+}
+
+.modal .modal__container input[type='button'],
+.modal .modal__container input[type='submit']{
+    text-transform: uppercase;
+    margin: 1em 0em 0.5em 0em;
+}
+
+.modal .modal__container .buttonContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.modal .modal__container .buttonContainer input[type='button'],
+.modal .modal__container .buttonContainer input[type='submit']{
+    width: 47%;
+    outline: none;
+    border: none;
+    padding: 0.4em 0em;
+    border-radius: 6px;
+    transition:all .1s ease-in-out;
+    cursor: default;
+}
+
+.modal .modal__container .buttonContainer input[type='button']:hover{
+    background-color: rgba(0,0,0,.15);
+}
+
+.modal .modal__container .buttonContainer .invalid{
+    background-color: #2196f3;
+    color: #fff;
+    opacity: 0.7;
+}
+
+.modal .modal__container .buttonContainer .valid{
+    background-color: #2196f3;
+    color: #fff;
+    opacity: 1;
+}

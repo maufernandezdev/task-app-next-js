@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-roboto: 'Roboto', sans-serif;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -100,33 +103,15 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
-    /* color-scheme: dark; */
+    color-scheme: dark;
   }
-}
+} */
 
-.borderViolet{
-  border-left: 4px solid #673de6;
-}
+/* pasar todo a modulos */
 
-.borderOrange{
-  border-left: 4px solid #EF4F1A;
-}
-
-.borderLightkBlue{
-  border-left: 4px solid #1798B5;
-}
-
-.borderRed{
-  border-left: 4px solid #B51749
-}
-
-.borderYellow{
-  border-left: 4px solid #DDEF6A;
-  border-left: 4px solid #C9EC23;
-}
-
-.borderGreen{
-  border-left: 4px solid #63D93E;
+.title{
+  color: #333;
+  font-family: var(--font-roboto);
 }
