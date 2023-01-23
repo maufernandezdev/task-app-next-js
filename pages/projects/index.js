@@ -17,7 +17,7 @@ export default function Projects() {
 
   const {modalAddProjectOpen, setModalProjectVisibility, modalUpdateDeleteProject} = useContext(ModalContext);
   const { data, error } = useSWR('/api/projects', fetcher);
-  console.log('proyect data: ', data);
+
   const setModalState = () =>
   {
     setModalProjectVisibility(!modalAddProjectOpen)
