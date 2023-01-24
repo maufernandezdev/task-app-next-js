@@ -1,5 +1,5 @@
 import { mongoose } from 'mongoose';
-// mongoose.set('strictQuery', true);
+mongoose.set('strictQuery', false);
 
 const conn = {
     isConnected:false
