@@ -84,7 +84,7 @@ export default function AddProject() {
         <input type="text" name='name' placeholder='Ejemplo: Cliente, Tarea, etc' onChange={handleChange} value={project.name || ''} />
         <div className={styles.buttonContainer}>
             <input type="button"  value='Cancelar' onClick={() => setModalProjectVisibility(false)} />
-            <input type="submit"  value='Crear' className={project?.name?.length > 0 ? styles.valid : styles.invalid}/>
+            <input type="submit"  value='Crear' className={project.name && project.name.length > 0 ? styles.valid : styles.invalid}/>
         </div>
       </form>
       <Toaster/>

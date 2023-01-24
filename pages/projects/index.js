@@ -6,9 +6,9 @@ import styles from 'styles/Projects.module.css'
 import useSWR from 'swr'
 import Card from 'components/card/Card'
 import Layout from 'components/Layout'
-import AddProject from 'components/updateDeleteProject/UpdateDeleteProject';
 import {ModalContext} from 'components/ModalsContext';
 import { AiOutlineArrowRight , AiOutlinePlus } from 'react-icons/ai'
+import AddProject from 'components/addProject/AddProject';
 import UpdateDeleteProject from 'components/updateDeleteProject/UpdateDeleteProject';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())

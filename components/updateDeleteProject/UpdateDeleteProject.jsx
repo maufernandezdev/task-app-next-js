@@ -114,7 +114,7 @@ export default function UpdateDeleteProject() {
         <input type="text" name='name' placeholder='Ejemplo: Cliente, Tarea, etc' onChange={handleChange} value={project.name || ''} />
         <div className={styles.buttonContainer}>
             <input type="button"  value='Eliminar' onClick={handleDelete} />
-            <input type="submit"  value='Guardar' className={project.name.length > 0 ? styles.valid : styles.invalid}/>
+            <input type="submit"  value='Guardar' className={project.name && project.name.length > 0 ? styles.valid : styles.invalid}/>
         </div>
       </form>
       <Toaster/>
