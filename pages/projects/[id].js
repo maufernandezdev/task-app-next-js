@@ -1,4 +1,4 @@
-import React , { useContext, useState } from 'react'
+import React , { useContext, useState, useEffect } from 'react'
 import useSWR from 'swr'
 import useSWRMutation from 'swr/mutation'
 import Layout from 'components/Layout'
@@ -25,6 +25,7 @@ const Project = ({id}) => {
     const { trigger } = useSWRMutation(`/api/projects/${id}`, sendRequest);
     const {modalAddTaskOpen, setModalTaskVisibility} = useContext(ModalContext);
     const [ taskValue , setTaskValue ] = useState({title:'', description:''});
+    const [selectedColor, setSelectedColor] = useState('');
 
     const setModalState = () =>
     {
@@ -96,6 +97,29 @@ const Project = ({id}) => {
         }
     }
 
+    useEffect(() => {
+
+        if(data && data.name)
+        {
+            const lowerTitle = data.name.toLowerCase();
+            const firstCaracter = lowerTitle.slice(0,1);
+            const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
+            const colors = ['673de6','EF4F1A','1798B5','B51749','E2F87D','63D93E'];
+            alphabet.forEach((element, index) => {
+              if(firstCaracter === element)
+              {
+                if(index < 5) return setSelectedColor(colors[0])
+                if(index < 10) return setSelectedColor(colors[1])
+                if(index < 15) return setSelectedColor(colors[2])
+                if(index < 20) return setSelectedColor(colors[3])
+                if(index < 25) return setSelectedColor(colors[4])
+                if(index > 25) return setSelectedColor(colors[5])
+              }
+            });
+        }
+        
+      }, [data])
+
     return (
         <>
             <Head>
@@ -110,7 +134,7 @@ const Project = ({id}) => {
                             <AiOutlineArrowRight></AiOutlineArrowRight>
                             {data && (
                                 <div className={styles.container__header_project}>
-                                    <p style={{ backgroundColor:`#EF4F1A`}}>{data.name.slice(0,1)}</p>  
+                                    <p style={{ backgroundColor:`#${selectedColor}`}}>{data.name.slice(0,1)}</p>  
                                     <h2 style={{color:'#333'}}>{data.name}</h2>
                                 </div>
                             )}
@@ -133,7 +157,9 @@ const Project = ({id}) => {
                                         return (
                                             <div className={styles.taskContainer__item} key={index}>
                                                 <h2 style={{color:'#333'}}>{task.title}</h2>
-                                                <h3 style={{color:'#333'}}>{task.description}</h3>
+                                                {
+                                                    task.description.length > 10? <h3 style={{color:'#333'}}>{task.description.slice(0,30)}...</h3> : <h3 style={{color:'#333'}}>{task.description}</h3>
+                                                }
                                                 <div>
                                                     <button onClick={(e)=> handleEditTask(e, index, task.title, task.description)}>Editar</button>
                                                     <button onClick={(e)=> handleDeleteTask(e, index, task.title, task.description)}>Eliminar</button>

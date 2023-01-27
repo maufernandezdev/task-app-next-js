@@ -60,7 +60,8 @@ export default async (req, res) => {
             if(!project) return res.status(404).json({msg:'Project not found'});
             return res.status(200).json(project);  
         } catch (error) {
-            return res.status(500).json({msg:error.message}) 
+            if(error.code === 11000) return res.status(400).json({error: error.message, duplicate: error.keyValue.name});
+            return res.status(500).json({error: error.message});
         }
 
         case "DELETE":

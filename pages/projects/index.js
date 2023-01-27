@@ -31,7 +31,7 @@ export default function Projects() {
       <Layout>
         <div className={styles.container}>
           <div className={styles.container__header}>
-              <h1 className={inter.className}>¡Hola, usuario!</h1>
+              <h1 className={inter.className}>¡Hola, <span>usuario</span>!</h1>
               <div className={styles.container__header_add}>
                 <h3>Proyectos</h3>
                 <AiOutlineArrowRight></AiOutlineArrowRight>

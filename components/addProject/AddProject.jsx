@@ -24,7 +24,11 @@ export default function AddProject() {
         e.preventDefault();
         if(project.name.length > 0 && project.name.length < 41)
         { 
-          const isCreated = await trigger(project);
+          const sendProject = {
+            name: project.name,
+            tasks: []
+          }
+          const isCreated = await trigger(sendProject);
           if(isCreated.status === 200)
           { 
             toast.success('Proyecto creado!',{
@@ -66,8 +70,7 @@ export default function AddProject() {
       [e.target.name]: e.target.value
     });
   }
-
-
+  
   return (
     <Modal isOpen={modalAddProjectOpen} toggle={() => setModalProjectVisibility(false)} className={styles.modal}>
       <form className={styles.modal__container} onSubmit={handleSubmit}>

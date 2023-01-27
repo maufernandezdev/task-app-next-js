@@ -23,7 +23,7 @@ export default async function handler(req, res) {
           const parseBody = JSON.parse(body);
           const newProject = new Project(parseBody);
           const savedProject = await newProject.save();
-          return res.status(200).json({msg:'Creating a new project', task: savedProject});
+          return res.status(200).json({msg:'Creating a new project', project: savedProject});
         } catch(error) {
           if(error.code === 11000) return res.status(400).json({error: error.message, duplicate: error.keyValue.name});
           return res.status(500).json({error: error.message});

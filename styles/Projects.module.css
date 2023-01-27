@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 
 .link{
     text-decoration: none;
@@ -47,6 +49,11 @@ border-left: 4px solid #63D93E;
     max-width: 1240px;
     text-align: left;
     font-size: 3em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container h1 span{
+    font-weight: 700;
 }
   
 .container h3{
@@ -165,7 +172,7 @@ border-left: 4px solid #63D93E;
     width: 100%;
     max-width: 1240px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px;
     padding: 1em 0em;
 }
@@ -173,8 +180,8 @@ border-left: 4px solid #63D93E;
 .container .taskContainer h4{
     font-family: var(--font-mono);
     font-size: 1.2em;
+    font-size: 1em;
     padding: 0.7em;
-    min-width: 500px;
 }
 
 .container .taskContainer .taskContainer__item{
@@ -182,14 +189,17 @@ border-left: 4px solid #63D93E;
     padding: 7px 15px;
     border-radius: 6px;
     font-family: var(--font-mono);
+    max-width: 250px;
 }
 
 .container .taskContainer .taskContainer__item h2{
     font-size: 1em;
+    height: 20px;
 }
 
 .container .taskContainer .taskContainer__item h3{
     font-size: 0.9em;
+    min-height: 40px;
 }
 
 .container .taskContainer .taskContainer__item > div{
@@ -351,13 +361,6 @@ height: 25px;
     position: relative;
     top:3px;
 }
-
-/* .card .card__body svg{
-    font-size: 2.5em;
-    border-radius: 50%;
-    position: relative;
-    padding: 0.2em;
-} */
 
 .card .card__body .button__container{
 display: flex;
@@ -553,12 +556,26 @@ text-align: left;
   .container h1{
     text-align: left;
     width: 100%;
-}
+  }   
 
-.container h3{
+  .container h3{
     width: 100%;
     text-align: left;
     font-size: 1.2em;
+  }
+
+  .container .taskContainer{
+    width: 100%;
+    max-width: 1240px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    padding: 1em 0em;
+  }
+
+  .container .taskContainer h4{
+    font-size: 1.1em;
+    width: 500px;
   }
 
 }
