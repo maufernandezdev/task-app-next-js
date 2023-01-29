@@ -37,7 +37,7 @@ border-left: 4px solid #63D93E;
     justify-content: center;
     flex-wrap: wrap;
     padding: 2em 1em;
-    max-width: 1240px;
+    max-width: 1024px;
     margin: 0px auto;
 }
 
@@ -46,7 +46,7 @@ border-left: 4px solid #63D93E;
     text-align:left;
     margin-bottom: 0.5em;
     color: #000;
-    max-width: 1240px;
+    max-width: 1024px;
     text-align: left;
     font-size: 3em;
     font-family: 'Roboto', sans-serif;
@@ -61,7 +61,7 @@ border-left: 4px solid #63D93E;
     color: #000;
     text-align:center;
     margin-bottom: 1em;
-    max-width: 1240px;
+    max-width: 1024px;
     text-align: left;
 }
 
@@ -70,7 +70,7 @@ border-left: 4px solid #63D93E;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 1240px;
+    max-width: 1024px;
 }
 
 .container .container__header_add{
@@ -170,7 +170,7 @@ border-left: 4px solid #63D93E;
 
 .container .taskContainer{
     width: 100%;
-    max-width: 1240px;
+    max-width: 1024px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px;
@@ -541,8 +541,8 @@ text-align: left;
 @media (min-width: 1024px)
 {
   .card{
-    max-width: 1240px;
-    width: 1240px;
+    max-width: 1024px;
+    width: 1024px;
   }
 
   .card input,
@@ -566,7 +566,7 @@ text-align: left;
 
   .container .taskContainer{
     width: 100%;
-    max-width: 1240px;
+    max-width: 1024px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;

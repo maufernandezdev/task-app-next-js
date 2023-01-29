@@ -1,0 +1,76 @@
+.loginContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+    flex-direction: column;
+}
+.loginContainer h2{
+    color: #333;
+    width: 100%;
+    text-align:center;
+    margin-bottom: 1em;
+    font-family: var(--font-mono);
+    font-size: 2em;
+}
+
+.loginContainer a{
+    margin-top: 1em;
+    color: #333;
+    font-family: var(--font-mono);
+    width: auto;
+    font-size: 1.2em;
+    border-bottom: 1px solid #4979ff;
+    color: #4979ff;
+    cursor: default;
+    text-decoration: none;
+}
+.loginContainer a svg{
+    position: relative;
+    top:3px;    
+}
+
+.loginForm{
+
+    padding: 30px 20px;
+    border: 2px solid rgba(0,0,0,.1);
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 350px;
+    margin: 1em 0em;
+}
+
+.loginForm button div{
+    display: flex;
+    width: 100%;
+    max-width: 225px;
+    line-height: 1.9;
+}
+
+.loginForm button{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1em;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    padding: 8px;
+    background-color: rgba(0,0,0,.15);
+    font-size: 0.75em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.loginForm img{
+    margin-right: 1em;
+}
+
+@media (min-width: 1024px){ 
+    .loginForm{
+        max-width: 400px;
+    }
+}
