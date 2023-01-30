@@ -1,4 +1,4 @@
-import React, { createContext, useDebugValue, useState } from 'react'
+import React, { createContext, useState } from 'react'
 
 export const ModalContext = createContext();
 
@@ -33,7 +33,7 @@ const ModalProvider = ({ children }) => {
         <ModalContext.Provider value={{modalAddProjectOpen , setModalProjectVisibility,
             modalAddTaskOpen, setModalTaskVisibility,
             modalUpdateDeleteProject, setModalUpdateDeleteProjectVisibility,
-            selectedProject, setProjectToUpdateDelete
+            selectedProject, setProjectToUpdateDelete,
         }}> {children} </ModalContext.Provider>
     )
 }

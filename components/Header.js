@@ -2,10 +2,11 @@
 import styles from 'styles/Header.module.css'
 import {FiUser} from 'react-icons/fi'
 import { useSession , signOut, signIn} from 'next-auth/react';
-import {useState, useEffect} from 'react';
-import { useRouter } from 'next/router'
+import {useState, useEffect, } from 'react';
+import { useRouter } from 'next/router';
 
 export function Header () {
+
   const session = useSession();
   const router = useRouter();
   const [userAuth, setuserAuth] = useState('Logout')

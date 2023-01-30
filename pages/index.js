@@ -9,7 +9,6 @@ import { useRouter } from 'next/router'
 
 export default function Home() {
   const session = useSession();
-  console.log(session)
   const router = useRouter();
   useEffect(() => {
     if(session.status === 'authenticated') router.push('/projects')

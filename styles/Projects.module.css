@@ -48,7 +48,7 @@ border-left: 4px solid #63D93E;
     color: #000;
     max-width: 1024px;
     text-align: left;
-    font-size: 3em;
+    font-size: 2em;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -556,6 +556,7 @@ text-align: left;
   .container h1{
     text-align: left;
     width: 100%;
+    font-size: 3em;
   }   
 
   .container h3{

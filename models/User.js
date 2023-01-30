@@ -1,22 +1,22 @@
 import { Schema, model, models } from 'mongoose';
-import Task from 'models/Task'
+import Project from 'models/Project';
 
-const projectSchema = new Schema({
-    owner_user:{
+const userSchema = new Schema({
+    email:{
         type: String,
         required: [true,'Email is required'],
+        unique: true,
         trim: true,
     },
     name:{
         type: String,
         required: [true,'Name is required'],
+        unique: false,
         trim: true,
-        maxlength: [40, 'Name must be less than 40 characters']
     },
-    tasks:[Task.schema],
 },{
     timestamps: true,
     versionKey: false
 });
 
-export default models.project || model('project', projectSchema);
+export default models.user || model('user', userSchema);

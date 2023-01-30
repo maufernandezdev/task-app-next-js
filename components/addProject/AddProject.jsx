@@ -5,6 +5,8 @@ import {ModalContext} from 'components/ModalsContext';
 import {Modal} from 'reactstrap';
 import useSWRMutation from 'swr/mutation'
 import toast, { Toaster } from 'react-hot-toast';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router'
 
 async function sendRequest(url, { arg }) {
   return fetch(url, {
@@ -13,11 +15,12 @@ async function sendRequest(url, { arg }) {
   })
 }
 
-export default function AddProject() {
+export default function AddProject({user:userEmail}) {
 
   const {modalAddProjectOpen, setModalProjectVisibility} = useContext(ModalContext);
   const { trigger } =  useSWRMutation('/api/projects', sendRequest);
   const [project , setProject] = useState({ name: ''});
+  const router = useRouter();
 
   const handleSubmit = async (e) =>
   {
@@ -25,6 +28,7 @@ export default function AddProject() {
         if(project.name.length > 0 && project.name.length < 41)
         { 
           const sendProject = {
+            owner_user:userEmail,
             name: project.name,
             tasks: []
           }
@@ -39,6 +43,7 @@ export default function AddProject() {
             })
             setTimeout(() => {
               setModalProjectVisibility(false);
+              router.reload(window.location.pathname) // fixme -> render cards
             }, 1000);
           }
           else if(isCreated.status === 400){

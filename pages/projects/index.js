@@ -3,7 +3,6 @@ import { Inter } from '@next/font/google'
 import Head from 'next/head';
 const inter = Inter({ subsets: ['latin'] })
 import styles from 'styles/Projects.module.css'
-import useSWR from 'swr'
 import Card from 'components/card/Card'
 import Layout from 'components/Layout'
 import {ModalContext} from 'components/ModalsContext';
@@ -12,18 +11,48 @@ import AddProject from 'components/addProject/AddProject';
 import UpdateDeleteProject from 'components/updateDeleteProject/UpdateDeleteProject';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router'
+import useSWRMutation from 'swr/mutation'
 
-const fetcher = (...args) => fetch(...args).then(res => res.json())
+async function sendRequest(url, { arg }) {
+  return fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(arg)
+  })
+}
 
 export default function Projects() {
-  const session = useSession();
+
   const router = useRouter();
+  const session = useSession({
+    required: true,
+    onUnauthenticated() {
+      // The user is not authenticated, handle it here.
+      router.push('/')
+    },
+  });
   const {modalAddProjectOpen, setModalProjectVisibility, modalUpdateDeleteProject} = useContext(ModalContext);
-  const { data, error } = useSWR('/api/projects', fetcher);
+  const { trigger: getUserInfo } = useSWRMutation(`/api/projects`, sendRequest);
+  const [projects, setProjects] = useState([])
+  const [userEmail, setUserEmail] = useState('')
   
   useEffect(() => {
-      if(session.status === 'unauthenticated') router.push('/')
+    if(session.status === 'authenticated')
+    {
+      setUserEmail(session.data.user.email)
+      const user = {
+        method: 'GET',
+        email: session.data.user.email,
+      }
+      getUserInformation(user)
+    }
   }, [session.status])
+  
+  const getUserInformation = async (user) =>
+  { 
+    const data = await getUserInfo(user);
+    const userData = await data.json();
+    setProjects(userData)
+  }
   
   const setModalState = () =>
   {
@@ -46,18 +75,23 @@ export default function Projects() {
               </div>
           </div>
               {
-                data? (
-                  data.map((project) => {
+                projects? (
+                  projects.length > 0 ?(
+                  projects.map((project) => {
                       return(
-                        <Card project = { project } key = { project._id } ></Card>
+                        <Card id = { project._id } title = { project.name } key = { project._id } ></Card>
                         )
-                  })
-                ) : <div>Cargando proyectos...</div>
+                  })) : <div style={{display:'flex', justifyContent:'flex-start', width:'100%', marginTop:'1em'}}>
+                          <h4 style={{fontSize:'1.1em'}}>Todavía no hay proyectos ...</h4>
+                        </div>
+                ) : <div style={{display:'flex', justifyContent:'flex-start', width:'100%', marginTop:'1em'}}>
+                      <h4 style={{fontSize:'1.1em'}}>Cargando proyectos ...</h4>
+                    </div>
               }
         </div>
         {
           modalAddProjectOpen && (
-            <AddProject></AddProject>
+            <AddProject user={userEmail} ></AddProject>
           )
         }
         {
