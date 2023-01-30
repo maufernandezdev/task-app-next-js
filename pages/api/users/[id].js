@@ -10,6 +10,7 @@ export default async function handler(req, res) {
   switch(method)
   {
       case 'GET':
+        // NOT IN USE
         try {
             const user = await User.findById(id);
             return res.status(200).json(user);
@@ -19,7 +20,7 @@ export default async function handler(req, res) {
         }
       
       case 'PUT':
-        
+        // NOT IN USE
         try {
           const parseBody = JSON.parse(body);
           const doc = await User.findById(id);
@@ -45,6 +46,7 @@ export default async function handler(req, res) {
         }
 
       case "PATCH":
+        // NOT IN USE
       try {
           const parseBody = JSON.parse(body);
           const {userId:_id, projectId, name} = parseBody;
