@@ -194,12 +194,19 @@ border-left: 4px solid #63D93E;
 
 .container .taskContainer .taskContainer__item h2{
     font-size: 1em;
-    height: 20px;
+    margin-bottom: 0.5em;
+    word-wrap: break-word;
+    /* background-color: blue; */
+    /* height: 50px;
+    overflow: hidden; */
+    /* height: 20px; */
 }
 
 .container .taskContainer .taskContainer__item h3{
-    font-size: 0.9em;
-    min-height: 40px;
+    font-size: 0.85em;
+    word-wrap: break-word;
+    /* background-color: red; */
+    /* height: 50px; */
 }
 
 .container .taskContainer .taskContainer__item > div{
@@ -569,7 +576,7 @@ text-align: left;
     width: 100%;
     max-width: 1024px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px;
     padding: 1em 0em;
   }

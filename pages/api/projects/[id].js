@@ -30,14 +30,26 @@ export default async (req, res) => {
                 const parseBody = JSON.parse(body);
                 const doc = await Project.findById(id);
                 if(parseBody === null) doc.tasks = []; // if body is null -> delete all tasks
-                if(parseBody !== null && parseBody.index === -1) doc.tasks.push({title: parseBody.title, description: parseBody.description}); // if body has index with -1 value -> just push a new task
+                if(parseBody !== null && parseBody.index === -1) doc.tasks.unshift({title: parseBody.title, description: parseBody.description}); // if body has index with -1 value -> just push a new task
                 if(parseBody !== null && parseBody.index !== -1) {
                     // edit or delete task 
-                    const filterTasks = doc.tasks.filter((task, index) => index !== parseBody.index);
                     const editedTask = {title:parseBody.title, description: parseBody.description}
-                    if(editedTask.title !== '' && editedTask.description !== '') filterTasks.push(editedTask); // push edited task if props != ''
-                    doc.tasks = [];
-                    doc.tasks.push(...filterTasks);
+                    // push edited task if props != ''
+                    if(editedTask.title !== '' && editedTask.description !== '') {
+                        doc.tasks.map((task, index) =>{
+                            if(index === parseBody.index)
+                            {
+                                task.title = editedTask.title,
+                                task.description = editedTask.description
+                            }
+                        })
+                    } 
+                    else{
+                        // delete
+                        const filterTasks = doc.tasks.filter((task, index) => index !== parseBody.index); 
+                        doc.tasks = [];
+                        doc.tasks.push(...filterTasks);
+                    }
                 }
                 const project = await Project.findByIdAndUpdate(id, doc, {
                     new: true

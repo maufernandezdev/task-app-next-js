@@ -24,7 +24,7 @@ const Project = ({id}) => {
     const { data } = useSWR(`/api/projects/${id}`, fetcher);
     const { trigger } = useSWRMutation(`/api/projects/${id}`, sendRequest);
     const {modalAddTaskOpen, setModalTaskVisibility} = useContext(ModalContext);
-    const [ taskValue , setTaskValue ] = useState({title:'', description:''});
+    const [ taskValue , setTaskValue ] = useState({title:'', description:'',index: -1});
     const [selectedColor, setSelectedColor] = useState('');
 
     const setModalState = () =>
@@ -156,10 +156,9 @@ const Project = ({id}) => {
                                     data.tasks.map((task, index) =>{
                                         return (
                                             <div className={styles.taskContainer__item} key={index}>
-                                                <h2 style={{color:'#333'}}>{task.title}</h2>
-                                                {
-                                                    task.description.length > 10? <h3 style={{color:'#333'}}>{task.description.slice(0,30)}...</h3> : <h3 style={{color:'#333'}}>{task.description}</h3>
-                                                }
+                                                 <h2 style={{color:'#333'}}>{task.title}</h2>
+                                                 <hr></hr>
+                                                 <h3 style={{color:'#333'}}>{task.description}</h3>
                                                 <div>
                                                     <button onClick={(e)=> handleEditTask(e, index, task.title, task.description)}>Editar</button>
                                                     <button onClick={(e)=> handleDeleteTask(e, index, task.title, task.description)}>Eliminar</button>

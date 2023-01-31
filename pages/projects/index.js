@@ -30,6 +30,7 @@ export default function Projects() {
       router.push('/')
     },
   });
+  
   const {modalAddProjectOpen, setModalProjectVisibility, modalUpdateDeleteProject} = useContext(ModalContext);
   const { trigger: getUserInfo } = useSWRMutation(`/api/projects`, sendRequest);
   const [projects, setProjects] = useState([])
